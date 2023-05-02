@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 interface FormProps {
+  Id:number
   Name: string;
   accountNumber: string;
   accountType: string;
@@ -12,7 +13,8 @@ const Form = () => {
   const { register, handleSubmit } = form;
   const onSubmit = (data: FormProps) => {
     // const formDataArr = Object.values(data);
-    setFormArr([...formArr, data]);
+      const newForm = {...data, Id: formArr.length+1};
+    setFormArr([...formArr, newForm]);
     localStorage.setItem("formData", JSON.stringify([...formArr, data]));
   };
   return (
