@@ -14,7 +14,7 @@ const CardRender = () => {
     if (formData) {
       setFormArr(JSON.parse(formData));
     }
-  }, []);
+  }, [formArr]);
 
   const handleRemove = (index: number) => {
     const newFormArr = [...formArr];
